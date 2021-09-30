@@ -1,5 +1,4 @@
-package edu.zjnu.common;
-
+package edu.zjnu.parentbbd;
 
 import org.springframework.beans.factory.support.BeanDefinitionReader;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
@@ -10,14 +9,13 @@ import org.springframework.core.io.Resource;
 /**
  * @description: ParentBeanMain
  * @author: 杨海波
- * @date: 2021-08-11
+ * @date: 2021-09-30
  **/
-public class Main {
+public class ParentBeanMain {
 
     public static void main(String[] args) {
         // bean定义文件的抽象
-        Resource resource = new ClassPathResource("spring-common.xml");
-
+        Resource resource = new ClassPathResource("spring-parent.xml");
         //  bean工厂：默认的可列举工厂
         DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
 
@@ -27,7 +25,8 @@ public class Main {
         // 为读取器加载bean定义的xml资源文件
         reader.loadBeanDefinitions(resource);
 
-        Person person = (Person) factory.getBean("person");
-        System.out.println(person.getName());
+        ParentBean bean = (ParentBean) factory.getBean("child");
+        System.out.println(bean.getName());
+        System.out.println(bean.getAge());
     }
 }

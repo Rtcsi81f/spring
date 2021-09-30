@@ -9,7 +9,7 @@ package edu.zjnu.common;
 public class XmlBeanFactoryMain {
 
     public static void main(String[] args) {
-//        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("spring-ioc-common.xml"));
+//        BeanFactory beanFactory = new XmlBeanFactory(new ClassPathResource("spring-common.xml"));
 //        Person person = (Person) beanFactory.getBean("person");
 //        System.out.println(person.getName());
     }
