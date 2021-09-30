@@ -1,0 +1,14 @@
+/.gradle/4.10.3/fileHashes/
+/spring-beans/build/
+/spring-context/build/kotlin/compileKotlin/
+/spring-jdbc/build/kotlin/compileKotlin/
+/spring-test/build/kotlin/compileKotlin/
+/spring-web/build/kotlin/compileKotlin/
+/spring-webflux/build/kotlin/compileKotlin/
+/.gradle/4.10.3/fileContent/annotation-processors.bin
+/.gradle/4.10.3/fileContent/fileContent.lock
+/.gradle/4.10.3/javaCompile/classAnalysis.bin
+/.gradle/4.10.3/javaCompile/jarAnalysis.bin
+/.gradle/4.10.3/javaCompile/javaCompile.lock
+/.gradle/buildOutputCleanup/cache.properties
+/.gradle/buildOutputCleanup/outputFiles.bin
