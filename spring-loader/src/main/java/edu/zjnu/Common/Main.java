@@ -1,4 +1,4 @@
-package edu.zjnu;
+package edu.zjnu.Common;
 
 
 import org.springframework.beans.factory.support.BeanDefinitionReader;

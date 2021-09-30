@@ -12,3 +12,6 @@
 /.gradle/4.10.3/javaCompile/javaCompile.lock
 /.gradle/buildOutputCleanup/cache.properties
 /.gradle/buildOutputCleanup/outputFiles.bin
+/.gradle/4.10.3/fileHashes/
+/spring-beans/build/
+/spring-core/build/

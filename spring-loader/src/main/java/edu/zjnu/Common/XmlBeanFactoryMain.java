@@ -1,4 +1,4 @@
-package edu.zjnu;
+package edu.zjnu.Common;
 
 /**
  * @description: XmlBeanFactory的方式使用Spring容器

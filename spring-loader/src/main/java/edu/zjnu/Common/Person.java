@@ -1,4 +1,4 @@
-package edu.zjnu;
+package edu.zjnu.Common;
 
 /**
  * @description: Person
