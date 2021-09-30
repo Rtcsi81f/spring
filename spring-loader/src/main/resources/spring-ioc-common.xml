@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!--    最简单的方式使用Spring容器    -->
-    <bean name="person" class="edu.zjnu.Common.Person">
+    <bean name="person" class="edu.zjnu.common.Person">
         <property name="name" value="我是猪头三"/>
     </bean>
 
