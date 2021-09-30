@@ -177,6 +177,16 @@ public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport imp
     @SuppressWarnings("unchecked")
     /**
      * getBean 是一个空壳方法，所有的逻辑都封装在 doGetBean 方法中
+     *
+     * 1、转换 beanName
+     * 2、从缓存中获取实例
+     * 3、如果实例不为空，且 args = null。调用 getObjectForBeanInstance 方法，并按 name 规则返回相应的 bean 实例
+     * 4、若上面的条件不成立，则到父容器中查找 beanName 对有的 bean 实例，存在则直接返回
+     * 5、若父容器中不存在，则进行下一步操作 – 合并 BeanDefinition
+     * 6、处理 depends-on 依赖
+     * 7、创建并缓存 bean
+     * 8、调用 getObjectForBeanInstance 方法，并按 name 规则返回相应的 bean 实例
+     * 9、按需转换 bean 类型，并返回转换后的 bean 实例。
      */
     protected <T> T doGetBean(
             String name, @Nullable Class<T> requiredType, @Nullable Object[] args, boolean typeCheckOnly)
