@@ -55,63 +55,76 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.beans.factory.BeanFactory
  * @see org.springframework.core.io.ResourceLoader
  */
+/**
+ * 作为Spring提供的较之 BeanFactory 更为先进的IoC容器实现， ApplicationContext 除了
+ * 拥有BeanFactory 支持的所有功能之外，还进一步扩展了基本容器的功能，包括 BeanFactoryPostProcessor 、
+ * BeanPostProcessor 以及其他特殊类型bean的自动识别、
+ * 容器启动后bean实例的自动初始化、国际化的信息支持、容器内事件发布等。
+ * 从 ApplicationContext 的继承机构可以看到， ApplicationContext 继承了BeanFactory，也就是说，
+ * ApplicationContext 拥有BeanFactory的全部功能，ApplicationContext 是通过将容器的功
+ * 能委派给DefaultListableBeanFactory来实现。除了继承BeanFactory，还有ResourceLoader、
+ * EnvironmentCapable、ApplicationEventPublisher、MessageSource等接口，也就说明ApplicationContext
+ * 除了容器的功能外，还囊括了资源的处理、环境、事件发布、国际化等。
+ *
+ *
+ */
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,
-		MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
+        MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
 
-	/**
-	 * Return the unique id of this application context.
-	 * @return the unique id of the context, or {@code null} if none
-	 */
-	@Nullable
-	String getId();
+    /**
+     * Return the unique id of this application context.
+     * @return the unique id of the context, or {@code null} if none
+     */
+    @Nullable
+    String getId();
 
-	/**
-	 * Return a name for the deployed application that this context belongs to.
-	 * @return a name for the deployed application, or the empty String by default
-	 */
-	String getApplicationName();
+    /**
+     * Return a name for the deployed application that this context belongs to.
+     * @return a name for the deployed application, or the empty String by default
+     */
+    String getApplicationName();
 
-	/**
-	 * Return a friendly name for this context.
-	 * @return a display name for this context (never {@code null})
-	 */
-	String getDisplayName();
+    /**
+     * Return a friendly name for this context.
+     * @return a display name for this context (never {@code null})
+     */
+    String getDisplayName();
 
-	/**
-	 * Return the timestamp when this context was first loaded.
-	 * @return the timestamp (ms) when this context was first loaded
-	 */
-	long getStartupDate();
+    /**
+     * Return the timestamp when this context was first loaded.
+     * @return the timestamp (ms) when this context was first loaded
+     */
+    long getStartupDate();
 
-	/**
-	 * Return the parent context, or {@code null} if there is no parent
-	 * and this is the root of the context hierarchy.
-	 * @return the parent context, or {@code null} if there is no parent
-	 */
-	@Nullable
-	ApplicationContext getParent();
+    /**
+     * Return the parent context, or {@code null} if there is no parent
+     * and this is the root of the context hierarchy.
+     * @return the parent context, or {@code null} if there is no parent
+     */
+    @Nullable
+    ApplicationContext getParent();
 
-	/**
-	 * Expose AutowireCapableBeanFactory functionality for this context.
-	 * <p>This is not typically used by application code, except for the purpose of
-	 * initializing bean instances that live outside of the application context,
-	 * applying the Spring bean lifecycle (fully or partly) to them.
-	 * <p>Alternatively, the internal BeanFactory exposed by the
-	 * {@link ConfigurableApplicationContext} interface offers access to the
-	 * {@link AutowireCapableBeanFactory} interface too. The present method mainly
-	 * serves as a convenient, specific facility on the ApplicationContext interface.
-	 * <p><b>NOTE: As of 4.2, this method will consistently throw IllegalStateException
-	 * after the application context has been closed.</b> In current Spring Framework
-	 * versions, only refreshable application contexts behave that way; as of 4.2,
-	 * all application context implementations will be required to comply.
-	 * @return the AutowireCapableBeanFactory for this context
-	 * @throws IllegalStateException if the context does not support the
-	 * {@link AutowireCapableBeanFactory} interface, or does not hold an
-	 * autowire-capable bean factory yet (e.g. if {@code refresh()} has
-	 * never been called), or if the context has been closed already
-	 * @see ConfigurableApplicationContext#refresh()
-	 * @see ConfigurableApplicationContext#getBeanFactory()
-	 */
-	AutowireCapableBeanFactory getAutowireCapableBeanFactory() throws IllegalStateException;
+    /**
+     * Expose AutowireCapableBeanFactory functionality for this context.
+     * <p>This is not typically used by application code, except for the purpose of
+     * initializing bean instances that live outside of the application context,
+     * applying the Spring bean lifecycle (fully or partly) to them.
+     * <p>Alternatively, the internal BeanFactory exposed by the
+     * {@link ConfigurableApplicationContext} interface offers access to the
+     * {@link AutowireCapableBeanFactory} interface too. The present method mainly
+     * serves as a convenient, specific facility on the ApplicationContext interface.
+     * <p><b>NOTE: As of 4.2, this method will consistently throw IllegalStateException
+     * after the application context has been closed.</b> In current Spring Framework
+     * versions, only refreshable application contexts behave that way; as of 4.2,
+     * all application context implementations will be required to comply.
+     * @return the AutowireCapableBeanFactory for this context
+     * @throws IllegalStateException if the context does not support the
+     * {@link AutowireCapableBeanFactory} interface, or does not hold an
+     * autowire-capable bean factory yet (e.g. if {@code refresh()} has
+     * never been called), or if the context has been closed already
+     * @see ConfigurableApplicationContext#refresh()
+     * @see ConfigurableApplicationContext#getBeanFactory()
+     */
+    AutowireCapableBeanFactory getAutowireCapableBeanFactory() throws IllegalStateException;
 
 }

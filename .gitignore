@@ -24,3 +24,7 @@
 /build/
 /.gradle/
 /spring-loader/build/classes/java/main/edu/zjnu/parentbbd/
+/spring-context/build/
+/spring-beans/build/classes/groovy/main/org/springframework/beans/factory/support/
+/spring-beans/build/classes/groovy/main/org/springframework/beans/factory/support/
+/spring-loader/build/

@@ -91,6 +91,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param configLocations array of resource locations
 	 * @throws BeansException if context creation failed
 	 */
+	//调用ClassPathXmlApplicationContext的构造方法，入参是配置文件的地址。
 	public ClassPathXmlApplicationContext(String... configLocations) throws BeansException {
 		this(configLocations, true, null);
 	}
@@ -133,6 +134,15 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 	 * @param parent the parent context
 	 * @throws BeansException if context creation failed
 	 * @see #refresh()
+	 */
+	/**
+	 * ClassPathXmlApplicationContext是一个XML应用上下文，从类路径获取上下文定
+	 * 义文件。再接着调用本类的另一个构造方法，传入的refresh参数为true，表示要调
+	 * 用AbstractApplicationContext的refresh()方法自动刷新上下文。
+	 * @param configLocations
+	 * @param refresh
+	 * @param parent
+	 * @throws BeansException
 	 */
 	public ClassPathXmlApplicationContext(
 			String[] configLocations, boolean refresh, @Nullable ApplicationContext parent)
