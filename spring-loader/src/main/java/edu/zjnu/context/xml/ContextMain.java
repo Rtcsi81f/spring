@@ -1,4 +1,4 @@
-package edu.zjnu.context;
+package edu.zjnu.context.xml;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
