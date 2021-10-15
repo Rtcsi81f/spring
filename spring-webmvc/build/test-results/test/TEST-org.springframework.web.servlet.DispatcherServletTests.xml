@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.springframework.web.servlet.DispatcherServletTests" tests="1" skipped="1" failures="0" errors="0" timestamp="2021-10-06T13:02:55" hostname="杨海波" time="115.238">
-  <properties/>
-  <testcase name="invalidRequest" classname="org.springframework.web.servlet.DispatcherServletTests" time="115.238">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
