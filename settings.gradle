@@ -20,7 +20,7 @@ include "spring-webmvc"
 include "spring-webflux"
 include "spring-websocket"
 include "spring-framework-bom"
-include 'spring-loader'
+include "spring-loader"
 
 // Exposes gradle buildSrc for IDE support
 include "buildSrc"
