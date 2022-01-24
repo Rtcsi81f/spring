@@ -18,8 +18,10 @@ include "spring-tx"
 include "spring-web"
 include "spring-webmvc"
 include "spring-webflux"
+include "spring-webload"
 include "spring-websocket"
 include "spring-framework-bom"
+include 'spring-loader'
 
 // Exposes gradle buildSrc for IDE support
 include "buildSrc"
@@ -29,5 +31,5 @@ rootProject.name = "spring"
 rootProject.children.each {project ->
 	project.buildFileName = "${project.name}.gradle"
 }
-include 'spring-loader'
+
 

@@ -147,7 +147,7 @@ import java.util.stream.Collectors;
  * @see org.springframework.web.context.ContextLoaderListener
  */
 @SuppressWarnings("serial")
-public class DispatcherServlet extends FrameworkServlet {
+public class  DispatcherServlet extends FrameworkServlet {
 
 	/** Well-known name for the MultipartResolver object in the bean factory for this namespace. */
 	public static final String MULTIPART_RESOLVER_BEAN_NAME = "multipartResolver";
