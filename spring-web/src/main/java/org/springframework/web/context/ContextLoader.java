@@ -134,11 +134,14 @@ public class ContextLoader {
 
 
 	private static final Properties defaultStrategies;
+//	private static final Properties defaultStrategies = new Properties();
 
 	static {
 		// Load default strategy implementations from properties file.
 		// This is currently strictly internal and not meant to be customized
 		// by application developers.
+		// 修改源码启动
+//		defaultStrategies.put("org.springframework.web.context.WebApplicationContext", "org.springframework.web.context.support.XmlWebApplicationContext");
 		try {
 			ClassPathResource resource = new ClassPathResource(DEFAULT_STRATEGIES_PATH, ContextLoader.class);
 			defaultStrategies = PropertiesLoaderUtils.loadProperties(resource);
