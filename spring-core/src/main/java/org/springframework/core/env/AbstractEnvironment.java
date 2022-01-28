@@ -101,7 +101,7 @@ public abstract class AbstractEnvironment implements ConfigurableEnvironment {
 	protected static final String RESERVED_DEFAULT_PROFILE_NAME = "default";
 
 
-	protected final Log logger = LogFactory.getLog(getClass());
+	protected  Log logger = LogFactory.getLog(getClass());
 
 	private final Set<String> activeProfiles = new LinkedHashSet<>();
 

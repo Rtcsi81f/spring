@@ -53,10 +53,13 @@ package org.springframework.core.env;
  */
 public class StandardEnvironment extends AbstractEnvironment {
 
+
 	/** System environment property source name: {@value}. */
+	// 一个是设置Spring的环境就是我们经常用的spring.profile配置。
 	public static final String SYSTEM_ENVIRONMENT_PROPERTY_SOURCE_NAME = "systemEnvironment";
 
 	/** JVM system properties property source name: {@value}. */
+	// 另外就是系统资源Property
 	public static final String SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME = "systemProperties";
 
 

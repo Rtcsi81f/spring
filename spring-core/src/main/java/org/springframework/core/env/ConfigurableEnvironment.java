@@ -69,6 +69,9 @@ import java.util.Map;
  * @see StandardEnvironment
  * @see org.springframework.context.ConfigurableApplicationContext#getEnvironment
  */
+// 这个接口比较重要的就是两部分内容:
+// 一个是设置Spring的环境就是我们经常用的spring.profile配置。
+// 另外就是系统资源Property
 public interface ConfigurableEnvironment extends Environment, ConfigurablePropertyResolver {
 
 	/**
