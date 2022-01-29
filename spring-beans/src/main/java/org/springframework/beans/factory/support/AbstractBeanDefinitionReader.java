@@ -187,6 +187,11 @@ public abstract class AbstractBeanDefinitionReader implements BeanDefinitionRead
 		for (Resource resource : resources) {
 			count += loadBeanDefinitions(resource);
 		}
+
+//		String str = "abcs";
+//		String str1 = str.intern();
+//		System.out.println(str == str1);
+//		assert str == str1;
 		return count;
 	}
 

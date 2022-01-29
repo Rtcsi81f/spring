@@ -123,7 +123,7 @@ public class PropertyPlaceholderHelper {
 		Assert.notNull(value, "'value' must not be null");
 		return parseStringValue(value, placeholderResolver, null);
 	}
-
+	// 这个方法主要就是处理所有使用${}方式的占位符
 	protected String parseStringValue(
 			String value, PlaceholderResolver placeholderResolver, @Nullable Set<String> visitedPlaceholders) {
 
