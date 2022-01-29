@@ -13,13 +13,15 @@ import java.util.Date;
  **/
 
 @Controller
-@RequestMapping("/web")
-public class WebLoaderController {
+@RequestMapping("/user")
+public class UserController {
 
-    @RequestMapping("/loader")
+    @RequestMapping("/getUser")
     public String handle01(Model model) {
-        Date date = new Date();
-        model.addAttribute("date", date);
-        return "success";
+        User user = new User();
+        user.setName("沈馨怡");
+        user.setAge(17);
+        model.addAttribute("user", user);
+        return "user";
     }
 }

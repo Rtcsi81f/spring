@@ -12,6 +12,7 @@
 </head>
 <body>
 
-<input type="button" onclick="window.location.href='${pageContext.request.contextPath}/web/loader';" value="发起请求">
+<input type="button" onclick="window.location.href='${pageContext.request.contextPath}/web/loader';" value="请求成功页面">
+<input type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUser';" value="请求用户页面">
 </body>
 </html>
