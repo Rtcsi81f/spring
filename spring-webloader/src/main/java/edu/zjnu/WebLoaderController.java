@@ -17,7 +17,7 @@ import java.util.Date;
 public class WebLoaderController {
 
     @RequestMapping("/loader")
-    public String handle01(Model model) {
+    public String loader(Model model) {
         Date date = new Date();
         model.addAttribute("date", date);
         return "success";

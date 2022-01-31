@@ -14,5 +14,6 @@
 
 <input type="button" onclick="window.location.href='${pageContext.request.contextPath}/web/loader';" value="请求成功页面">
 <input type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUser';" value="请求用户页面">
+<input type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnvAware';" value="测试Environment实例">
 </body>
 </html>

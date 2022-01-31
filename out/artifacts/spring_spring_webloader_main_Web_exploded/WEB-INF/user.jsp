@@ -6,6 +6,6 @@
 </head>
 <body>
 <%System.out.println("跳转到用户页面");%>
-<p>请求成功！服务器时间：</p>${user.toString()}
+<p>请求成功！用户信息：</p>${user.toString()}
 </body>
 </html>
