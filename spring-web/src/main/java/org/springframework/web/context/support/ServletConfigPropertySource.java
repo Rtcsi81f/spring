@@ -30,6 +30,7 @@ import org.springframework.util.StringUtils;
  * @since 3.1
  * @see ServletContextPropertySource
  */
+// ServletConfigPropertySource 封装的就是ServletConfig
 public class ServletConfigPropertySource extends EnumerablePropertySource<ServletConfig> {
 
 	public ServletConfigPropertySource(String name, ServletConfig servletConfig) {

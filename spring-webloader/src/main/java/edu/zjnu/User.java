@@ -2,7 +2,7 @@ package edu.zjnu;
 
 /**
  * @description: todo
- * @author: 杨海波
+ * @author:
  * @date: 2022-01-29
  **/
 public class User {

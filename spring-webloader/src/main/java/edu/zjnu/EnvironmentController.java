@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * @description: EnvironmentAware
- * @author: 杨海波
+ * @author:
  * @date: 2022-01-31
  **/
 @Controller
@@ -17,7 +17,7 @@ public class EnvironmentController implements EnvironmentAware {
 
     private Environment environment = null;
 
-    @RequestMapping("/toEnvAware")
+    @RequestMapping("/toEnv")
     public String toEnvAware(Model model) {
         System.out.println(environment.toString());
         model.addAttribute("resultStr", "请求成功");
