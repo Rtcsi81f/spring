@@ -15,7 +15,7 @@
        value="请求成功页面">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUser';"
        value="请求用户页面">
-<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnvAware';"
+<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnv';"
        value="测试Environment实例">
 </body>
 </html>

@@ -1,5 +1,7 @@
 package edu.zjnu;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -20,8 +22,12 @@ public class EnvironmentController implements EnvironmentAware {
     @RequestMapping("/toEnv")
     public String toEnvAware(Model model) {
         System.out.println(environment.toString());
-        model.addAttribute("resultStr", "请求成功");
-        return "请求成功";
+        String environmentString = JSON.toJSONString(environment,
+                SerializerFeature.PrettyFormat,
+                SerializerFeature.WriteMapNullValue,
+                SerializerFeature.WriteDateUseDateFormat);
+        model.addAttribute("environment", environmentString);
+        return "env";
     }
 
     @Override
