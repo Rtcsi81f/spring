@@ -181,6 +181,7 @@ public abstract class FrameworkServlet extends HttpServletBean implements Applic
 
     /** Namespace for this servlet. */
     @Nullable
+
     private String namespace;
 
     /** Explicit context config location. */
