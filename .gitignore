@@ -26,12 +26,12 @@
 /spring-loader/build/classes/java/main/edu/zjnu/parentbbd/
 /spring-context/build/
 /spring-beans/build/classes/groovy/main/org/springframework/beans/factory/support/
-/spring-beans/build/classes/groovy/main/org/springframework/beans/factory/support/
 /spring-loader/build/
 #忽略所有.svn目录
 .svn/
 #忽略所有target目录
 target/
+!/spring-aop/src/main/java/org/springframework/aop/target
 #忽略所有.idea目录
 .idea/
 #忽略所有.iml文件
