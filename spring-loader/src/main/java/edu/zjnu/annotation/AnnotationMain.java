@@ -17,6 +17,6 @@ public class AnnotationMain {
         // 通过工厂获得对象
         // "userService" 对应注解中 value 的值
         PersonServiceImpl personService = (PersonServiceImpl)ac.getBean("userService");
-        System.out.println(personService.getPersonByNameAndAge("沈馨怡",18));
+        System.out.println(personService.getPersonByNameAndAge("杨海波",18));
     }
 }
