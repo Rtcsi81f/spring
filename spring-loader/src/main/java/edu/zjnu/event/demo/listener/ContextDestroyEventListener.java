@@ -19,7 +19,8 @@ public class ContextDestroyEventListener implements ContextListener<AbstractCont
     public void onApplicationEvent(AbstractContextEvent event) {
 //        ContextListener.super.onApplicationEvent(event);
         if (event instanceof ContextStartEvent) {
-            System.out.println("容器销毁。。。，销毁时间为：" + event.getTimestamp());
+            System.out.println("容器销毁。。。，销毁时间为：" + ((ContextStartEvent) event).getTimestamp());
+            System.out.println("事件源" + ((ContextStartEvent) event).getSource());
         }
     }
 }

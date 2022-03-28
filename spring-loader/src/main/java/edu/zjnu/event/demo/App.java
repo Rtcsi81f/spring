@@ -18,21 +18,21 @@ import java.util.concurrent.CountDownLatch;
  **/
 public class App {
 
-    public static void testContextLifecycleEventInSync() {
+    public void testContextLifecycleEventInSync() {
         // 新建SimpleApplicationEventMulticaster对象，并添加容器生命周期监听器
         ApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
         eventMulticaster.addContextListener(new ContextStartEventListener());
         eventMulticaster.addContextListener(new ContextRunningEventListener());
         eventMulticaster.addContextListener(new ContextDestroyEventListener());
         // 发射容器启动事件ContextStartEvent
-        eventMulticaster.multicastEvent(new ContextStartEvent());
+        eventMulticaster.multicastEvent(new ContextStartEvent(this));
         // 发射容器正在运行事件ContextRunningEvent
-        eventMulticaster.multicastEvent(new ContextRunningEvent());
+        eventMulticaster.multicastEvent(new ContextRunningEvent(this));
         // 发射容器正在运行事件ContextDestroyEvent
-        eventMulticaster.multicastEvent(new ContextDestroyEvent());
+        eventMulticaster.multicastEvent(new ContextDestroyEvent(this));
     }
 
-    public static void testContextLifecycleEventInAsync() {
+    public void testContextLifecycleEventInAsync() {
         // 新建SimpleApplicationEventMulticaster对象，并添加容器生命周期监听器
         ApplicationEventMulticaster eventMulticaster = new SimpleApplicationEventMulticaster();
         eventMulticaster.addContextListener(new ContextStartEventListener());
@@ -42,14 +42,14 @@ public class App {
         ((SimpleApplicationEventMulticaster) eventMulticaster).setAsync(true);
 
         // 发布容器启动事件ContextStartEvent
-        eventMulticaster.multicastEvent(new ContextStartEvent());
+        eventMulticaster.multicastEvent(new ContextStartEvent(this));
         // 发布容器正在运行事件ContextRunningEvent
-        eventMulticaster.multicastEvent(new ContextRunningEvent());
+        eventMulticaster.multicastEvent(new ContextRunningEvent(this));
         // 发布容器正在运行事件ContextDestroyEvent
-        eventMulticaster.multicastEvent(new ContextDestroyEvent());
+        eventMulticaster.multicastEvent(new ContextDestroyEvent(this));
     }
 
     public static void main(String[] args) {
-        testContextLifecycleEventInSync();
+        new App().testContextLifecycleEventInSync();
     }
 }
