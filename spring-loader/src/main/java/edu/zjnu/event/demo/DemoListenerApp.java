@@ -9,14 +9,12 @@ import edu.zjnu.event.demo.listener.ContextDestroyEventListener;
 import edu.zjnu.event.demo.listener.ContextRunningEventListener;
 import edu.zjnu.event.demo.listener.ContextStartEventListener;
 
-import java.util.concurrent.CountDownLatch;
-
 /**
  * @description: App
  * @author: 杨海波
  * @date: 2022-03-28 14:34
  **/
-public class App {
+public class DemoListenerApp {
 
     public void testContextLifecycleEventInSync() {
         // 新建SimpleApplicationEventMulticaster对象，并添加容器生命周期监听器
@@ -50,6 +48,6 @@ public class App {
     }
 
     public static void main(String[] args) {
-        new App().testContextLifecycleEventInSync();
+        new DemoListenerApp().testContextLifecycleEventInSync();
     }
 }

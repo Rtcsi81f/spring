@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author: 杨海波
  * @date: 2022-03-29 14:28
  **/
-public class LoadListenerApp {
+public class SpringListenerApp {
 
     public static void main(String[] args) {
         // 创建工厂,加载配置文件
