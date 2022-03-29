@@ -13,7 +13,7 @@ public class UserRegisterSmsListener {
 
     @EventListener
     public void handleUserEvent(UserEvent userEvent) {
-        System.out.println("UserRegisterSmsListener" + userEvent.flag());
+        System.out.println("UserRegisterSmsListener:" + userEvent.flag());
         System.out.println("source:" + userEvent.getSource());
     }
 }
