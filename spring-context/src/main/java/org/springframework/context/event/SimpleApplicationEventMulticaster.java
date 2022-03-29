@@ -16,6 +16,7 @@
 
 package org.springframework.context.event;
 
+import java.util.Collection;
 import java.util.concurrent.Executor;
 
 import org.apache.commons.logging.Log;
@@ -131,7 +132,9 @@ public class SimpleApplicationEventMulticaster extends AbstractApplicationEventM
 	public void multicastEvent(final ApplicationEvent event, @Nullable ResolvableType eventType) {
 		ResolvableType type = (eventType != null ? eventType : resolveDefaultEventType(event));
 		Executor executor = getTaskExecutor();
-		for (ApplicationListener<?> listener : getApplicationListeners(event, type)) {
+//		拆分一行代码方便断点调试
+		Collection<ApplicationListener<?>> listeners = getApplicationListeners(event, type);
+		for (ApplicationListener<?> listener : listeners) {
 			if (executor != null) {
 				executor.execute(() -> invokeListener(listener, event));
 			}
