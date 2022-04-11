@@ -400,6 +400,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 			this.earlyApplicationEvents.add(applicationEvent);
 		}
 		else {
+//			分发事件，事件分发器在引用上下文中
 			getApplicationEventMulticaster().multicastEvent(applicationEvent, eventType);
 		}
 

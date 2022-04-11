@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  **/
 @Component(value = "userEventService")
 public class UserEventService {
-
+//    时间分发器
     @Autowired
     private ApplicationEventPublisher eventPublisher;
 
