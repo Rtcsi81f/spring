@@ -17,4 +17,11 @@ public class PersonDao implements IPersonDao {
         person.setAge(age);
         return person;
     }
+
+    @Override
+    public Person getDefaultUser() {
+        Person person = new Person("猪头三");
+        person.setAge(18);
+        return person;
+    }
 }

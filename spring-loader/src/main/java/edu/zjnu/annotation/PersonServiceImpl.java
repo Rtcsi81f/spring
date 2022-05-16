@@ -18,4 +18,8 @@ public class PersonServiceImpl {
     public Person getPersonByNameAndAge(String name, Integer age) {
         return personDao.getPersonByName(name,age);
     }
+
+    public Person getDefaultUser(){
+        return personDao.getDefaultUser();
+    }
 }

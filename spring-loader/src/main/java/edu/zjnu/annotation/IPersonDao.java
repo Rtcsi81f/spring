@@ -15,4 +15,6 @@ public interface IPersonDao {
      * @return
      */
     Person getPersonByName(String name, Integer age);
+
+    Person getDefaultUser();
 }
