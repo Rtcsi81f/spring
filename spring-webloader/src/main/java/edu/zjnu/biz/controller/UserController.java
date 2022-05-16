@@ -1,10 +1,8 @@
-package edu.zjnu;
+package edu.zjnu.biz.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Date;
 
 /**
  * @description: 描述

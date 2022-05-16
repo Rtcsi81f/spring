@@ -1,4 +1,4 @@
-package edu.zjnu;
+package edu.zjnu.biz.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
