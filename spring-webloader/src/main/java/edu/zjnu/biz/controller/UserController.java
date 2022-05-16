@@ -17,7 +17,7 @@ public class UserController {
     @RequestMapping("/getUser")
     public String getUser(Model model) {
         User user = new User();
-        user.setName("沈馨怡");
+        user.setName("罗思雯");
         user.setAge(17);
         model.addAttribute("user", user);
         return "user";
