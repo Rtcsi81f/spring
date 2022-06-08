@@ -1,4 +1,4 @@
-package edu.zjnu.biz.controller;
+package edu.zjnu.biz.entity;
 
 /**
  * @description: todo
