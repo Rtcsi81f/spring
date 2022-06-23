@@ -6,4 +6,9 @@ package edu.zjnu.biz.service;
  * @date: 2022-05-19 08:59
  **/
 public interface IUserService {
+
+    /**
+     * 做一些事情
+     */
+    void doSomeThing();
 }
