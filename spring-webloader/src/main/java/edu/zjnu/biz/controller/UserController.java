@@ -23,7 +23,7 @@ public class UserController {
     @RequestMapping("/getUser")
     public String getUser(Model model) {
         User user = new User();
-        user.setName("罗思雯");
+        user.setName("小瘪三");
         user.setAge(17);
         model.addAttribute("user", user);
         userService.doSomeThing();

@@ -48,6 +48,16 @@ import org.springframework.util.StringValueResolver;
  * @see org.springframework.beans.factory.ListableBeanFactory
  * @see ConfigurableListableBeanFactory
  */
+
+/**
+ * 从接口 BeanFactory 到 HierarchicalBeanFactory 再到 ConfigurableBeanFactory，是一条主要的 BeanFactory 设计
+ * 路径。在这条设计路径中，BeanFactory 接口定义了基本的 IoC 容器的规范。在这个接口定义中，包括了 getBean 这样的容器的基本
+ * 方法（通过这个容器可以从容器中获取 bean）。而 HierarchicalBeanFactory 接口在继承了 BeanFactory 的基本接口之后，增加了
+ * getParentBeanFactory 的接口功能，使得 BeanFactory 具备了双亲 IoC 容器的功能。在ConfigurableBeanFactory接口
+ * 中，主要定义了一些对 BeanFactory 的配置功能，比如通过 setParentBeanFactory 设置双亲 IoC 容器，通过addBeanPostProcessor
+ * 配置 Bean 后置处理器等。
+ * 通过这些接口的设计的叠加，定义出了 Spring IoC 容器的基本功能。
+ */
 public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry {
 
 	/**

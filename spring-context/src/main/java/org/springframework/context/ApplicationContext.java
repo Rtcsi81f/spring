@@ -55,6 +55,13 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.beans.factory.BeanFactory
  * @see org.springframework.core.io.ResourceLoader
  */
+
+/**
+ * 在 Spring IoC 容器的设计中，我们可以看到两个主要的容器系列，一个是实现 BeanFactory 接口的简单容器系列，
+ * 这系列的容器只实现了容器的最基本功能；另外一个是 ApplicationContext 应用上下文，它作为容器的高级形态而存在。应用
+ * 上下文在简单容器的基础之上，增加了很多面向框架的特性，同时对应用环境做了很多适配。有了这两种基本的容器系列，基本上可以满足用户对 IoC
+ * 容器的大部分需求了。
+ */
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,
 		MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
 

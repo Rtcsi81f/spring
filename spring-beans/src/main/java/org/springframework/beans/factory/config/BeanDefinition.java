@@ -38,6 +38,14 @@ import org.springframework.lang.Nullable;
  * @see org.springframework.beans.factory.support.RootBeanDefinition
  * @see org.springframework.beans.factory.support.ChildBeanDefinition
  */
+
+/**
+ *
+ * 在计算机的世界中，所有的功能都是建立在通过数据抽象现实的基础之上的：
+ * Spring 通过定义 BeanDefinition 来管理基于 Spring 的应用中的各种对象以及他们之间的相互依赖关系。
+ * BeanDefinition 抽象了我们对 Bean 的定义，是让容器起作用的主要数据类型。
+ *
+ */
 public interface BeanDefinition extends AttributeAccessor, BeanMetadataElement {
 
 	/**

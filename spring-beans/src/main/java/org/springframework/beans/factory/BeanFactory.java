@@ -113,6 +113,10 @@ import org.springframework.lang.Nullable;
  * @see DisposableBean#destroy
  * @see org.springframework.beans.factory.support.RootBeanDefinition#getDestroyMethodName
  */
+
+/**
+ * 作为简单系列的容器实现的顶层接口，需要为容器的具体实现指定基本的功能规范，这个规范由BeanFactory来指定。
+ */
 public interface BeanFactory {
 
 	/**
