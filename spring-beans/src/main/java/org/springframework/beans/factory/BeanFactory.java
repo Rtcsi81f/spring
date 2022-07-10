@@ -269,6 +269,15 @@ public interface BeanFactory {
 	 * @see #getBean
 	 * @see #isPrototype
 	 */
+	/**
+	 *
+	 * 查询指定名字的 Bean 是否是 Singleton 类型的 Bean，对于 Singleton 属性，用户可以在 BeanDefination
+	 * 中指定。
+	 *
+	 * @param name
+	 * @return
+	 * @throws NoSuchBeanDefinitionException
+	 */
 	boolean isSingleton(String name) throws NoSuchBeanDefinitionException;
 
 	/**

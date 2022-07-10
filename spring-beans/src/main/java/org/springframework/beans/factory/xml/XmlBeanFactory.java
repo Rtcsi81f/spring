@@ -54,6 +54,11 @@ import org.springframework.core.io.Resource;
 @SuppressWarnings({"serial", "all"})
 public class XmlBeanFactory extends DefaultListableBeanFactory {
 
+	/**
+	 * 对于外部xml文件的读取并不是由 XmlBeanFactory 直接完成的，而是在 XmlBeanFactory 内部初始化一个 XmlBeanDefinitionReader
+	 * 对象，有了这个 reader 对象，那些以 xml 形式定义的 BeanDefinition 就有了处理的地方。
+	 *
+	 */
 	private final XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(this);
 
 
