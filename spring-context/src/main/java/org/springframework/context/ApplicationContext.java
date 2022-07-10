@@ -72,7 +72,19 @@ import org.springframework.lang.Nullable;
  * 取双亲容器的功能。而对于 ApplicationContext 接口，通过继承 MessageSource、ApplicationEventPublisher、ResourcePatternResolver等
  * 接口，在 BeanFactory 简单 IoC 容器的基础之上添加了许多对高级容器的特性的支持。
  *
- * @author SetsunaYang
+ * @author
+ */
+
+/**
+ * ApplicationContext 作为 IoC 容器的高级形态，从接口设计上看，具备了 BeanFactory 不具备的这些特性：
+ * 1、首先是国际化支持。ApplicationContext 集成了MessageSource接口，这使得我们的容器可以支持国际化功能，
+ * 为需要开发出多语言版本的应用提供服务。
+ * 2、不同资源访问bean信息。这一特性主要是体现在 ResourcePatternResolver（ResourceLoader、Resource）的
+ * 接口设计上。这使得我们可以通过不同的路径获取bean定义的信息。
+ * 3、支持应用事件。继承了接口 ApplicationEventPublisher，从而在应用上下文中引入了事件机制。事件机制和 bean 的
+ * 生命周期结合为 bean 的管理提供了便利。
+ *
+ *
  */
 public interface ApplicationContext extends EnvironmentCapable, ListableBeanFactory, HierarchicalBeanFactory,
 		MessageSource, ApplicationEventPublisher, ResourcePatternResolver {
