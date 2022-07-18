@@ -17,5 +17,7 @@
        value="请求用户页面">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnv';"
        value="测试Environment实例">
+<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/jvm/test';"
+       value="jvm 简单测试，配合 jvisualvm 实验">
 </body>
 </html>

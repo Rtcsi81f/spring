@@ -120,6 +120,13 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * bean factory, shutting down the previous bean factory (if any) and
 	 * initializing a fresh bean factory for the next phase of the context's lifecycle.
 	 */
+	/**
+	 * 这个方法被 refresh() 方法方法调用，这个方法中通过 createBeanFactory 方法构建一个基本的 IoC 容器给 ApplicationContext
+	 * 使用。这个 IoC 容器就是 DefaultListableBeanFactory，同时这个方法启动了 loadBeanDefinitions 来载入 BeanDefinitions。
+	 *
+	 *
+	 * @throws BeansException
+	 */
 	@Override
 	protected final void refreshBeanFactory() throws BeansException {
 		// 判断当前ApplicationContext是否存在BeanFactory，如果存在的话就销毁所有 Bean，关闭 BeanFactory
@@ -128,6 +135,8 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 			destroyBeans();
 			closeBeanFactory();
 		}
+		// 这里是创建并设置持有的 DefaultListableBeanFactory 的地方同时调用 loadBeanDefinitions
+		// 再载入 BeanDefinitions 的信息。
 		try {
 			// 初始化DefaultListableBeanFactory
 			DefaultListableBeanFactory beanFactory = createBeanFactory();
@@ -244,6 +253,20 @@ public abstract class AbstractRefreshableApplicationContext extends AbstractAppl
 	 * @throws IOException if loading of bean definition files failed
 	 * @see org.springframework.beans.factory.support.PropertiesBeanDefinitionReader
 	 * @see org.springframework.beans.factory.xml.XmlBeanDefinitionReader
+	 */
+	/**
+	 *
+	 * @param beanFactory
+	 * @throws BeansException
+	 * @throws IOException
+	 */
+	/**
+	 * 虽然我们常用的载入 DeanDefinition 的方式是 XML，但是从框架的角度考虑还是需要支持多种载入方式
+	 * 所以这里没有具体实现，而是通过抽象函数把具体的实现委托给子类来完成。
+	 *
+	 * @param beanFactory
+	 * @throws BeansException
+	 * @throws IOException
 	 */
 	protected abstract void loadBeanDefinitions(DefaultListableBeanFactory beanFactory)
 			throws BeansException, IOException;
