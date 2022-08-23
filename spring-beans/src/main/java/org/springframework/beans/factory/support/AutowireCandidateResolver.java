@@ -28,7 +28,7 @@ import org.springframework.lang.Nullable;
  * @author Mark Fisher
  * @since 2.5
  */
-public interface AutowireCandidateResolver {
+public interface   AutowireCandidateResolver {
 
 	/**
 	 * Determine whether the given bean definition qualifies as an
