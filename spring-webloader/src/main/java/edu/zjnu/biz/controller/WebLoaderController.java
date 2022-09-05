@@ -25,7 +25,7 @@ public class WebLoaderController {
     public String loader(Model model) {
         Date date = new Date();
         model.addAttribute("date", date);
-        userService.doSomeThing();
+        userService.getUserInfoById(1L);
         return "success";
     }
 }

@@ -2,13 +2,24 @@ package edu.zjnu.biz.entity;
 
 /**
  * @description: todo
- * @author:
+ * @author: 杨海波
  * @date: 2022-01-29
  **/
 public class User {
 
+    private Long id;
+
     private String name;
+
     private Integer age;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

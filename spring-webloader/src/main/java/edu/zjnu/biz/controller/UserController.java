@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/getUserInfoById")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/getUser")
+    @RequestMapping("/getUserInfoById")
     public String getUser(Model model) {
         User user = new User();
         user.setName("小瘪三");
         user.setAge(17);
         model.addAttribute("user", user);
-        userService.doSomeThing();
+        userService.getUserInfoById(1L);
         return "user";
     }
 }

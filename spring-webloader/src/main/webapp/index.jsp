@@ -13,7 +13,7 @@
 <body>
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/web/loader';"
        value="请求成功页面">
-<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUser';"
+<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUserInfoById';"
        value="请求用户页面">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnv';"
        value="测试Environment实例">

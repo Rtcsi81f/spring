@@ -8,7 +8,8 @@ package edu.zjnu.biz.service;
 public interface IUserService {
 
     /**
-     * 做一些事情
+     *
+     * @param id
      */
-    void doSomeThing();
+    void getUserInfoById(Long id);
 }

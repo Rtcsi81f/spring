@@ -5,7 +5,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean name="person" class="edu.zjnu.xml.Person">
-        <property name="age" value="24"/>
+        <constructor-arg value="杨海波"/>
+        <property name="age" value="18"/>
         <property name="name" value="杨海波"/>
     </bean>
 

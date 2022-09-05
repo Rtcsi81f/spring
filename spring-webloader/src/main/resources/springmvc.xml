@@ -6,13 +6,10 @@
         http://www.springframework.org/schema/beans
         https://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        https://www.springframework.org/schema/context/spring-context.xsd
-">
-
+        https://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--开启controller扫描-->
-    <context:component-scan base-package="edu.zjnu"/>
-
+    <context:component-scan base-package="edu.zjnu.biz.controller"/>
 
     <!--配置springmvc的视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

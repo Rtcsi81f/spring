@@ -1,6 +1,11 @@
 package edu.zjnu.biz.service;
 
+import edu.zjnu.biz.dao.IUserDao;
+import edu.zjnu.biz.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @description: IUserService
@@ -10,8 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService implements IUserService {
 
+    @Resource
+    private IUserDao userDao;
+
     @Override
-    public void doSomeThing() {
-        System.out.println("do something");
+    public void getUserInfoById(Long id) {
+        User user = userDao.getUserInfoById(id);
+        System.out.println(user.toString());
     }
 }
