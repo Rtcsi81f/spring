@@ -1,5 +1,9 @@
 package edu.zjnu.biz.service;
 
+import edu.zjnu.biz.entity.User;
+
+import java.util.List;
+
 /**
  * @description: IUserService
  * @author: 杨海波
@@ -11,5 +15,12 @@ public interface IUserService {
      *
      * @param id
      */
-    void getUserInfoById(Long id);
+    User getUserInfoById(Long id);
+
+    /**
+     *
+     * @param id
+     * @return
+     */
+    List<User> getUserVOS(long id);
 }

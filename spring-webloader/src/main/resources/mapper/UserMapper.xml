@@ -3,16 +3,17 @@
 
 <mapper namespace="edu.zjnu.biz.dao.IUserDao">
 
-    <resultMap id="BaseResultMap" type="edu.zjnu.biz.entity.User">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="name" property="name" jdbcType="VARCHAR"/>
-        <result column="age" property="age" jdbcType="INTEGER"/>
-    </resultMap>
-
-    <select id="getUserInfoById" parameterType="java.lang.Long">
+    <select id="getUserInfoById" parameterType="java.lang.Long" resultType="edu.zjnu.biz.entity.User">
         select t.id, t.name, t.age
         from user t
         where id = #{id};
+    </select>
+
+    <select id="getUserVOS" parameterType="java.lang.Long" resultType="edu.zjnu.biz.vo.UserVO">
+        select t.id, t.name, t.age, b.id as book_id, b.name as book_name
+        from user t
+        left join book b on t.id = b.user_id
+        where t.id = #{id};
     </select>
 
 </mapper>

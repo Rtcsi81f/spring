@@ -1,11 +1,13 @@
 package edu.zjnu.biz.controller;
 
 import edu.zjnu.biz.entity.User;
-import edu.zjnu.biz.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.zjnu.biz.service.IUserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @description: 描述
@@ -14,19 +16,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 
 @Controller
-@RequestMapping("/getUserInfoById")
+@RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    @Resource
+    private IUserService userService;
 
     @RequestMapping("/getUserInfoById")
     public String getUser(Model model) {
-        User user = new User();
-        user.setName("小瘪三");
-        user.setAge(17);
+        User user = userService.getUserInfoById(30L);
         model.addAttribute("user", user);
-        userService.getUserInfoById(1L);
         return "user";
+    }
+
+    @RequestMapping("/getUserVO")
+    public String getUserVO(Model model) {
+        List<User> users = userService.getUserVOS(30L);
+        model.addAttribute("userVO", users.get(0));
+        return "relatedQuery";
     }
 }

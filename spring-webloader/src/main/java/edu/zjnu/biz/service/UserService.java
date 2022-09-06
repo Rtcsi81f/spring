@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @description: IUserService
@@ -19,8 +20,14 @@ public class UserService implements IUserService {
     private IUserDao userDao;
 
     @Override
-    public void getUserInfoById(Long id) {
-        User user = userDao.getUserInfoById(id);
-        System.out.println(user.toString());
+    public User getUserInfoById(Long id) {
+        return userDao.getUserInfoById(id);
     }
+
+    @Override
+    public List<User> getUserVOS(long id) {
+        return userDao.getUserVOS(id);
+    }
+
+
 }
