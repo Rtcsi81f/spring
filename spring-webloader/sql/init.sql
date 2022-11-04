@@ -1,0 +1,16 @@
+CREATE DATABASE webloader CHARACTER SET utf8 COLLATE utf8_general_ci;
+use webloader;
+CREATE TABLE user(
+ id int(11) NOT NULL AUTO_INCREMENT,
+ name varchar(20),
+ age int(11),
+ PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='用户表';
+
+
+CREATE TABLE book (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  user_id int(11) DEFAULT NULL,
+  name varchar(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='书籍表';
