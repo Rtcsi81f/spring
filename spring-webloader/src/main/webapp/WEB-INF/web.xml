@@ -25,7 +25,7 @@
             <param-value>classpath:springmvc.xml</param-value>
         </init-param>
         <!-- 立即加载 -->
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>0</load-on-startup>
     </servlet>
 
     <servlet-mapping>
