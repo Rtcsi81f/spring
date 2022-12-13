@@ -1319,11 +1319,14 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         if (!continueWithPropertyPopulation) {
             return;
         }
-
+//        这里取得在 BeanDefinition 中定义的 priperty 值
         PropertyValues pvs = (mbd.hasPropertyValues() ? mbd.getPropertyValues() : null);
 
         int resolvedAutowireMode = mbd.getResolvedAutowireMode();
-        if (resolvedAutowireMode == AUTOWIRE_BY_NAME || resolvedAutowireMode == AUTOWIRE_BY_TYPE) {
+//       根据 beanName
+        if (resolvedAutowireMode == AUTOWIRE_BY_NAME
+                //        根据类型注入
+                || resolvedAutowireMode == AUTOWIRE_BY_TYPE) {
             MutablePropertyValues newPvs = new MutablePropertyValues(pvs);
             // Add property values based on autowire by name if applicable.
             if (resolvedAutowireMode == AUTOWIRE_BY_NAME) {
@@ -1597,6 +1600,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         BeanDefinitionValueResolver valueResolver = new BeanDefinitionValueResolver(this, beanName, mbd, converter);
 
         // Create a deep copy, resolving any references for values.
+//        这里为解析到的值创建拷贝，拷贝的数据会被注入到当前的bean中
         List<PropertyValue> deepCopy = new ArrayList<>(original.size());
         boolean resolveNecessary = false;
         for (PropertyValue pv : original) {
@@ -1612,6 +1616,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
                     }
                     originalValue = new DependencyDescriptor(new MethodParameter(writeMethod, 0), true);
                 }
+                // 如果依赖的对象也是bean，以下代码会触发该bean的创建
+                // 考虑循环依赖的情况？
                 Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
                 Object convertedValue = resolvedValue;
                 boolean convertible = bw.isWritableProperty(propertyName) && !PropertyAccessorUtils.isNestedOrIndexedProperty(propertyName);
