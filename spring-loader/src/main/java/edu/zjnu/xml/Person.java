@@ -11,9 +11,9 @@ public class Person {
 
     private Integer age;
 
-    public Person(String name) {
-        this.name = name;
-    }
+//    public Person(String name) {
+//        this.name = name;
+//    }
 
     public String getName() {
         return name;
