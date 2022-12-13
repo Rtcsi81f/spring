@@ -273,8 +273,9 @@ class BeanDefinitionValueResolver {
     @Nullable
 
     /**
-     * 如果依赖是bean 则重走创建 bean 的过程
-	 * 考虑循环依赖的情况？
+     * 如果依赖是bean(RuntimeBeanReference 类型) 则重走长征路，重新创建 bean 的过程
+     * 如果bean a 依赖 bean b;bean b 依赖 bean a，则会发生循环依赖
+	 * 考虑Spring 是如何处理循环依赖的情况的？
      */
     private Object resolveReference(Object argName, RuntimeBeanReference ref) {
         try {
