@@ -508,6 +508,12 @@ class ConfigurationClassParser {
          * 么做的。在判断一个bean上是否有某个注解时，Spring都是递归解析注解的。或者说所有的复合注解都是没有语义的，有语义的是复合注解
          * 上的单个注解。
          */
+        /**
+         * 其实可以借助元注解来理解递归注解，在 java 中，元注解是指可以注解在其他注解上的注解，spring 中通过对这个机制进行了扩展，实
+         * 现了一些原生 JDK 不支持的功能，比如允许在注解中让两个属性互为别名，或者将一个带有元注解的子注解直接作为元注解看待，或者在这
+         * 个基础上，通过 @AliasFor 或者同名策略让子注解的值覆盖元注解的值。
+         * 当然这些"元注解"的行为，是需要Spring自行定义的。
+         */
         if (visited.add(sourceClass)) {
             for (SourceClass annotation : sourceClass.getAnnotations()) {
                 String annName = annotation.getMetadata().getClassName();
