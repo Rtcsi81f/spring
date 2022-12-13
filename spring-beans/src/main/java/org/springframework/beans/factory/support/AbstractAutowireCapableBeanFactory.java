@@ -541,6 +541,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         // 会作为依赖注入完成之后的bean返回
         Object exposedObject = bean;
         try {
+            // 重点方法：设置好 bean 的依赖关系，完成依赖注入
             populateBean(beanName, mbd, instanceWrapper);
             exposedObject = initializeBean(beanName, exposedObject, mbd);
         } catch (Throwable ex) {

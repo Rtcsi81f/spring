@@ -1,6 +1,6 @@
 package edu.zjnu.annotation;
 
-import edu.zjnu.xml.Person;
+import edu.zjnu.xml.Man;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +15,11 @@ public class PersonServiceImpl {
     @Autowired
     private IPersonDao personDao;
 
-    public Person getPersonByNameAndAge(String name, Integer age) {
+    public Man getPersonByNameAndAge(String name, Integer age) {
         return personDao.getPersonByName(name,age);
     }
 
-    public Person getDefaultUser(){
+    public Man getDefaultUser(){
         return personDao.getDefaultUser();
     }
 }

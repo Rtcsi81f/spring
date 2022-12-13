@@ -2518,8 +2518,8 @@ Consider the following driver script:
 
 		public static void main(final String[] args) throws Exception {
 			BeanFactory ctx = new ClassPathXmlApplicationContext("x/y/plain.xml");
-			PersonService person = (PersonService) ctx.getBean("personService");
-			person.getPerson("Pengo", 12);
+			PersonService man = (PersonService) ctx.getBean("personService");
+			man.getPerson("Pengo", 12);
 		}
 	}
 ----
@@ -2528,8 +2528,8 @@ Consider the following driver script:
 ----
 	fun main() {
 		val ctx = ClassPathXmlApplicationContext("x/y/plain.xml")
-		val person = ctx.getBean("personService") as PersonService
-		person.getPerson("Pengo", 12)
+		val man = ctx.getBean("personService") as PersonService
+		man.getPerson("Pengo", 12)
 	}
 ----
 

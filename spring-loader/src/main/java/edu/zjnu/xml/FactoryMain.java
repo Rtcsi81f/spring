@@ -23,8 +23,8 @@ public class FactoryMain {
         DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(defaultListableBeanFactory);
         xmlBeanDefinitionReader.loadBeanDefinitions(resource);
-        Person person = (Person) defaultListableBeanFactory.getBean("person");
-        System.out.println(person.toString());
+        Man man = (Man) defaultListableBeanFactory.getBean("person");
+        System.out.println(man.toString());
     }
 
     private static void testGbk() {
@@ -32,8 +32,8 @@ public class FactoryMain {
         DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(defaultListableBeanFactory);
         xmlBeanDefinitionReader.loadBeanDefinitions(resource);
-        Person person = (Person) defaultListableBeanFactory.getBean("person");
-        System.out.println(person.toString());
+        Man man = (Man) defaultListableBeanFactory.getBean("person");
+        System.out.println(man.toString());
     }
 
     private static void testUtf8() {
@@ -41,8 +41,8 @@ public class FactoryMain {
         DefaultListableBeanFactory defaultListableBeanFactory = new DefaultListableBeanFactory();
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(defaultListableBeanFactory);
         xmlBeanDefinitionReader.loadBeanDefinitions(resource);
-        Person person = (Person) defaultListableBeanFactory.getBean("person");
-        System.out.println(person.toString());
+        Man man = (Man) defaultListableBeanFactory.getBean("person");
+        System.out.println(man.toString());
     }
 
 

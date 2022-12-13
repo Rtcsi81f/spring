@@ -12,7 +12,8 @@ public class XmlMain {
 
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-xml.xml");
-        Person person = (Person) context.getBean("person");
-        System.out.println(person.toString());
+        Man man = (Man) context.getBean("man");
+        System.out.println(man.toString());
+        System.out.println(man.getWife().toString());
     }
 }

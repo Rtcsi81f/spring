@@ -41,9 +41,9 @@ as the following example shows:
 	PersonHandler handler = new PersonHandler(repository);
 
 	RouterFunction<ServerResponse> route = route()
-		.GET("/person/{id}", accept(APPLICATION_JSON), handler::getPerson)
-		.GET("/person", accept(APPLICATION_JSON), handler::listPeople)
-		.POST("/person", handler::createPerson)
+		.GET("/man/{id}", accept(APPLICATION_JSON), handler::getPerson)
+		.GET("/man", accept(APPLICATION_JSON), handler::listPeople)
+		.POST("/man", handler::createPerson)
 		.build();
 
 
@@ -73,10 +73,10 @@ as the following example shows:
 
 	val route = coRouter { // <1>
 		accept(APPLICATION_JSON).nest {
-			GET("/person/{id}", handler::getPerson)
-			GET("/person", handler::listPeople)
+			GET("/man/{id}", handler::getPerson)
+			GET("/man", handler::listPeople)
 		}
-		POST("/person", handler::createPerson)
+		POST("/man", handler::createPerson)
 	}
 
 
@@ -228,14 +228,14 @@ content:
 [source,java,role="primary"]
 .Java
 ----
-Mono<Person> person = ...
-ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(person, Person.class);
+Mono<Person> man = ...
+ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(man, Person.class);
 ----
 [source,kotlin,role="secondary"]
 .Kotlin
 ----
-val person: Person = ...
-ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(person)
+val man: Person = ...
+ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(man)
 ----
 
 The following example shows how to build a 201 (CREATED) response with a `Location` header and no body:
@@ -313,14 +313,14 @@ public class PersonHandler {
 	}
 
 	public Mono<ServerResponse> createPerson(ServerRequest request) { // <2>
-		Mono<Person> person = request.bodyToMono(Person.class);
-		return ok().build(repository.savePerson(person));
+		Mono<Person> man = request.bodyToMono(Person.class);
+		return ok().build(repository.savePerson(man));
 	}
 
 	public Mono<ServerResponse> getPerson(ServerRequest request) { // <3>
 		int personId = Integer.valueOf(request.pathVariable("id"));
 		return repository.getPerson(personId)
-			.flatMap(person -> ok().contentType(APPLICATION_JSON).bodyValue(person))
+			.flatMap(man -> ok().contentType(APPLICATION_JSON).bodyValue(man))
 			.switchIfEmpty(ServerResponse.notFound().build());
 	}
 }
@@ -329,10 +329,10 @@ public class PersonHandler {
 JSON.
 <2> `createPerson` is a handler function that stores a new `Person` contained in the request body.
 Note that `PersonRepository.savePerson(Person)` returns `Mono<Void>`: an empty `Mono` that emits
-a completion signal when the person has been read from the request and stored. So we use the
+a completion signal when the man has been read from the request and stored. So we use the
 `build(Publisher<Void>)` method to send a response when that completion signal is received (that is,
 when the `Person` has been saved).
-<3> `getPerson` is a handler function that returns a single person, identified by the `id` path
+<3> `getPerson` is a handler function that returns a single man, identified by the `id` path
 variable. We retrieve that `Person` from the repository and create a JSON response, if it is
 found. If it is not found, we use `switchIfEmpty(Mono<T>)` to return a 404 Not Found response.
 
@@ -347,8 +347,8 @@ found. If it is not found, we use `switchIfEmpty(Mono<T>)` to return a 404 Not F
 		}
 
 		suspend fun createPerson(request: ServerRequest): ServerResponse { // <2>
-			val person = request.awaitBody<Person>()
-			repository.savePerson(person)
+			val man = request.awaitBody<Person>()
+			repository.savePerson(man)
 			return ok().buildAndAwait()
 		}
 
@@ -364,7 +364,7 @@ found. If it is not found, we use `switchIfEmpty(Mono<T>)` to return a 404 Not F
 JSON.
 <2> `createPerson` is a handler function that stores a new `Person` contained in the request body.
 Note that `PersonRepository.savePerson(Person)` is a suspending function with no return type.
-<3> `getPerson` is a handler function that returns a single person, identified by the `id` path
+<3> `getPerson` is a handler function that returns a single man, identified by the `id` path
 variable. We retrieve that `Person` from the repository and create a JSON response, if it is
 found. If it is not found, we return a 404 Not Found response.
 
@@ -386,13 +386,13 @@ apply validation to the request body. For example, given a custom Spring
 		// ...
 
 		public Mono<ServerResponse> createPerson(ServerRequest request) {
-			Mono<Person> person = request.bodyToMono(Person.class).doOnNext(this::validate); // <2>
-			return ok().build(repository.savePerson(person));
+			Mono<Person> man = request.bodyToMono(Person.class).doOnNext(this::validate); // <2>
+			return ok().build(repository.savePerson(man));
 		}
 
-		private void validate(Person person) {
-			Errors errors = new BeanPropertyBindingResult(person, "person");
-			validator.validate(person, errors);
+		private void validate(Person man) {
+			Errors errors = new BeanPropertyBindingResult(man, "man");
+			validator.validate(man, errors);
 			if (errors.hasErrors()) {
 				throw new ServerWebInputException(errors.toString()); // <3>
 			}
@@ -413,15 +413,15 @@ apply validation to the request body. For example, given a custom Spring
 		// ...
 
 		suspend fun createPerson(request: ServerRequest): ServerResponse {
-			val person = request.awaitBody<Person>()
-			validate(person) // <2>
-			repository.savePerson(person)
+			val man = request.awaitBody<Person>()
+			validate(man) // <2>
+			repository.savePerson(man)
 			return ok().buildAndAwait()
 		}
 
-		private fun validate(person: Person) {
-			val errors: Errors = BeanPropertyBindingResult(person, "person");
-			validator.validate(person, errors);
+		private fun validate(man: Person) {
+			val errors: Errors = BeanPropertyBindingResult(man, "man");
+			validator.validate(man, errors);
 			if (errors.hasErrors()) {
 				throw ServerWebInputException(errors.toString()) // <3>
 			}
@@ -532,17 +532,17 @@ PersonHandler handler = new PersonHandler(repository);
 RouterFunction<ServerResponse> otherRoute = ...
 
 RouterFunction<ServerResponse> route = route()
-	.GET("/person/{id}", accept(APPLICATION_JSON), handler::getPerson) // <1>
-	.GET("/person", accept(APPLICATION_JSON), handler::listPeople) // <2>
-	.POST("/person", handler::createPerson) // <3>
+	.GET("/man/{id}", accept(APPLICATION_JSON), handler::getPerson) // <1>
+	.GET("/man", accept(APPLICATION_JSON), handler::listPeople) // <2>
+	.POST("/man", handler::createPerson) // <3>
 	.add(otherRoute) // <4>
 	.build();
 ----
-<1> `GET /person/{id}` with an `Accept` header that matches JSON is routed to
+<1> `GET /man/{id}` with an `Accept` header that matches JSON is routed to
 `PersonHandler.getPerson`
-<2> `GET /person` with an `Accept` header that matches JSON is routed to
+<2> `GET /man` with an `Accept` header that matches JSON is routed to
 `PersonHandler.listPeople`
-<3> `POST /person` with no additional predicates is mapped to
+<3> `POST /man` with no additional predicates is mapped to
 `PersonHandler.createPerson`, and
 <4> `otherRoute` is a router function that is created elsewhere, and added to the route built.
 
@@ -557,16 +557,16 @@ RouterFunction<ServerResponse> route = route()
 	val otherRoute: RouterFunction<ServerResponse> = coRouter {  }
 
 	val route = coRouter {
-		GET("/person/{id}", accept(APPLICATION_JSON), handler::getPerson) // <1>
-		GET("/person", accept(APPLICATION_JSON), handler::listPeople) // <2>
-		POST("/person", handler::createPerson) // <3>
+		GET("/man/{id}", accept(APPLICATION_JSON), handler::getPerson) // <1>
+		GET("/man", accept(APPLICATION_JSON), handler::listPeople) // <2>
+		POST("/man", handler::createPerson) // <3>
 	}.and(otherRoute) // <4>
 ----
-<1> `GET /person/{id}` with an `Accept` header that matches JSON is routed to
+<1> `GET /man/{id}` with an `Accept` header that matches JSON is routed to
 `PersonHandler.getPerson`
-<2> `GET /person` with an `Accept` header that matches JSON is routed to
+<2> `GET /man` with an `Accept` header that matches JSON is routed to
 `PersonHandler.listPeople`
-<3> `POST /person` with no additional predicates is mapped to
+<3> `POST /man` with no additional predicates is mapped to
 `PersonHandler.createPerson`, and
 <4> `otherRoute` is a router function that is created elsewhere, and added to the route built.
 
@@ -575,10 +575,10 @@ RouterFunction<ServerResponse> route = route()
 
 It is common for a group of router functions to have a shared predicate, for instance a shared
 path.
-In the example above, the shared predicate would be a path predicate that matches `/person`,
+In the example above, the shared predicate would be a path predicate that matches `/man`,
 used by three of the routes.
 When using annotations, you would remove this duplication by using a type-level `@RequestMapping`
- annotation that maps to `/person`.
+ annotation that maps to `/man`.
 In WebFlux.fn, path predicates can be shared through the `path` method on the router function builder.
 For instance, the last few lines of the example above can be improved in the following way by using nested routes:
 
@@ -586,10 +586,10 @@ For instance, the last few lines of the example above can be improved in the fol
 .Java
 ----
 RouterFunction<ServerResponse> route = route()
-	.path("/person", builder -> builder // <1>
+	.path("/man", builder -> builder // <1>
 		.GET("/{id}", accept(APPLICATION_JSON), handler::getPerson)
 		.GET("", accept(APPLICATION_JSON), handler::listPeople)
-		.POST("/person", handler::createPerson))
+		.POST("/man", handler::createPerson))
 	.build();
 ----
 <1> Note that second parameter of `path` is a consumer that takes the a router builder.
@@ -598,10 +598,10 @@ RouterFunction<ServerResponse> route = route()
 .Kotlin
 ----
 	val route = coRouter {
-		"/person".nest {
+		"/man".nest {
 			GET("/{id}", accept(APPLICATION_JSON), handler::getPerson)
 			GET("", accept(APPLICATION_JSON), handler::listPeople)
-			POST("/person", handler::createPerson)
+			POST("/man", handler::createPerson)
 		}
 	}
 ----
@@ -615,22 +615,22 @@ We can further improve by using the `nest` method together with `accept`:
 .Java
 ----
 	RouterFunction<ServerResponse> route = route()
-		.path("/person", b1 -> b1
+		.path("/man", b1 -> b1
 			.nest(accept(APPLICATION_JSON), b2 -> b2
 				.GET("/{id}", handler::getPerson)
 				.GET("", handler::listPeople))
-			.POST("/person", handler::createPerson))
+			.POST("/man", handler::createPerson))
 		.build();
 ----
 [source,kotlin,indent=0,subs="verbatim,quotes",role="secondary"]
 .Kotlin
 ----
 	val route = coRouter {
-		"/person".nest {
+		"/man".nest {
 			accept(APPLICATION_JSON).nest {
 				GET("/{id}", handler::getPerson)
 				GET("", handler::listPeople)
-				POST("/person", handler::createPerson)
+				POST("/man", handler::createPerson)
 			}
 		}
 	}
@@ -758,14 +758,14 @@ For instance, consider the following example:
 .Java
 ----
 	RouterFunction<ServerResponse> route = route()
-		.path("/person", b1 -> b1
+		.path("/man", b1 -> b1
 			.nest(accept(APPLICATION_JSON), b2 -> b2
 				.GET("/{id}", handler::getPerson)
 				.GET("", handler::listPeople)
 				.before(request -> ServerRequest.from(request) // <1>
 					.header("X-RequestHeader", "Value")
 					.build()))
-			.POST("/person", handler::createPerson))
+			.POST("/man", handler::createPerson))
 		.after((request, response) -> logResponse(response)) // <2>
 		.build();
 ----
@@ -776,14 +776,14 @@ For instance, consider the following example:
 .Kotlin
 ----
 	val route = router {
-		"/person".nest {
+		"/man".nest {
 			GET("/{id}", handler::getPerson)
 			GET("", handler::listPeople)
 			before { // <1>
 				ServerRequest.from(it)
 						.header("X-RequestHeader", "Value").build()
 			}
-			POST("/person", handler::createPerson)
+			POST("/man", handler::createPerson)
 			after { _, response -> // <2>
 				logResponse(response)
 			}
@@ -810,11 +810,11 @@ The following example shows how to do so:
 	SecurityManager securityManager = ...
 
 	RouterFunction<ServerResponse> route = route()
-		.path("/person", b1 -> b1
+		.path("/man", b1 -> b1
 			.nest(accept(APPLICATION_JSON), b2 -> b2
 				.GET("/{id}", handler::getPerson)
 				.GET("", handler::listPeople))
-			.POST("/person", handler::createPerson))
+			.POST("/man", handler::createPerson))
 		.filter((request, next) -> {
 			if (securityManager.allowAccessTo(request.path())) {
 				return next.handle(request);
@@ -831,10 +831,10 @@ The following example shows how to do so:
 	val securityManager: SecurityManager = ...
 
 	val route = router {
-			("/person" and accept(APPLICATION_JSON)).nest {
+			("/man" and accept(APPLICATION_JSON)).nest {
 				GET("/{id}", handler::getPerson)
 				GET("", handler::listPeople)
-				POST("/person", handler::createPerson)
+				POST("/man", handler::createPerson)
 				filter { request, next ->
 					if (securityManager.allowAccessTo(request.path())) {
 						next(request)

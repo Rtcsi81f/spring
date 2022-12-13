@@ -5,7 +5,7 @@ package edu.zjnu.xml;
  * @author: 杨海波
  * @date: 2022-01-26
  **/
-public class Person {
+public class Man {
 
     private String name;
 
@@ -14,6 +14,16 @@ public class Person {
 //    public Person(String name) {
 //        this.name = name;
 //    }
+
+    private Wife wife;
+
+    public Wife getWife() {
+        return wife;
+    }
+
+    public void setWife(Wife wife) {
+        this.wife = wife;
+    }
 
     public String getName() {
         return name;

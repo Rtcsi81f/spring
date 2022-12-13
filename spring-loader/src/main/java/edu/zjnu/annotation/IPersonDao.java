@@ -1,6 +1,6 @@
 package edu.zjnu.annotation;
 
-import edu.zjnu.xml.Person;
+import edu.zjnu.xml.Man;
 
 /**
  * @description: IPersonDao
@@ -14,7 +14,7 @@ public interface IPersonDao {
      * @param age
      * @return
      */
-    Person getPersonByName(String name, Integer age);
+    Man getPersonByName(String name, Integer age);
 
-    Person getDefaultUser();
+    Man getDefaultUser();
 }

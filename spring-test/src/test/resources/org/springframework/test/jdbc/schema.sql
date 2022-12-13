@@ -1,6 +1,6 @@
-DROP TABLE person IF EXISTS;
+DROP TABLE man IF EXISTS;
 
-CREATE TABLE person (
+CREATE TABLE man (
   name VARCHAR(20) NOT NULL,
   PRIMARY KEY(name)
 );
