@@ -12,12 +12,14 @@ public class ParentMain {
 
     public static void main(String[] args) {
         AbstractApplicationContext subContext = new ClassPathXmlApplicationContext("spring-sub.xml");
+        subContext.setId("subContext");
         subContext.refresh();
 
         Sub sub = (Sub) subContext.getBean("sub");
         System.out.println(sub.getName());
 
         AbstractApplicationContext parentContext = new ClassPathXmlApplicationContext("spring-parent.xml");
+        parentContext.setId("parentContext");
         subContext.setParent(parentContext);
         subContext.refresh();
 
