@@ -1,6 +1,6 @@
 package edu.zjnu.annotation;
 
-import edu.zjnu.xml.Man;
+import edu.zjnu.xml.inject.Man;
 
 /**
  * @description: IPersonDao

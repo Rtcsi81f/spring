@@ -1,6 +1,6 @@
 package edu.zjnu.annotation;
 
-import edu.zjnu.xml.Man;
+import edu.zjnu.xml.inject.Man;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

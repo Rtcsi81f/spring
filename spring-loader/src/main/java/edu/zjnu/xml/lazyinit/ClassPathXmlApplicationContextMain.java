@@ -1,5 +1,6 @@
-package edu.zjnu.xml;
+package edu.zjnu.xml.lazyinit;
 
+import edu.zjnu.xml.inject.Man;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

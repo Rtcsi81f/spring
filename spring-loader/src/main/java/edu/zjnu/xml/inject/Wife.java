@@ -1,40 +1,26 @@
-package edu.zjnu.xml;
+package edu.zjnu.xml.inject;
 
 /**
- * @description: Person
  * @author: 杨海波
- * @date: 2022-01-26
- **/
-public class Man {
+ * @date: 2022-12-13 17:31:17
+ * @description: 老婆
+ */
+public class Wife {
 
     private String name;
 
     private Integer age;
 
-//    public Person(String name) {
-//        this.name = name;
-//    }
-
-    private Wife wife;
-
-    public Wife getWife() {
-        return wife;
-    }
-
-    public void setWife(Wife wife) {
-        this.wife = wife;
-    }
-
     public String getName() {
         return name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
     }
 
     public void setAge(Integer age) {
@@ -43,7 +29,7 @@ public class Man {
 
     @Override
     public String toString() {
-        return "Person{" +
+        return "Wife{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
                 '}';
