@@ -1710,7 +1710,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             throw new BeanCreationException((mbd != null ? mbd.getResourceDescription() : null), beanName, "Invocation of init method failed", ex);
         }
         if (mbd == null || !mbd.isSynthetic()) {
-
+            //
             wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
         }
 
@@ -1785,7 +1785,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
      * @see #invokeInitMethods
      */
     protected void invokeCustomInitMethod(String beanName, final Object bean, RootBeanDefinition mbd) throws Throwable {
-
+        // 从 bean 定义中 获取被指定为 init-method 的方法，并基于反射执行之
         String initMethodName = mbd.getInitMethodName();
         Assert.state(initMethodName != null, "No init method set");
         Method initMethod = (mbd.isNonPublicAccessAllowed() ? BeanUtils.findMethod(bean.getClass(), initMethodName) : ClassUtils.getMethodIfAvailable(bean.getClass(), initMethodName));

@@ -1,4 +1,4 @@
-package edu.zjnu.xml.lazyinit;
+package edu.zjnu.xml.lazyInit;
 
 import edu.zjnu.xml.inject.Man;
 import org.springframework.context.ApplicationContext;
