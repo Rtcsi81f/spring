@@ -33,6 +33,11 @@ import org.aopalliance.aop.Advice;
  * @author Rod Johnson
  * @author Juergen Hoeller
  */
+
+/**
+ * Advice 定义了切面的增强逻辑，而 Pointcut 决定了增强点(AOP联盟定义中，语言开发环境中指的"基础")。
+ * 而通知器 Advisor 负责将他们结合起来。
+ */
 public interface Advisor {
 
 	/**

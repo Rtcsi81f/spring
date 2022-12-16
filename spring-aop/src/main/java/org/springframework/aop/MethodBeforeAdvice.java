@@ -16,9 +16,9 @@
 
 package org.springframework.aop;
 
-import java.lang.reflect.Method;
-
 import org.springframework.lang.Nullable;
+
+import java.lang.reflect.Method;
 
 /**
  * Advice invoked before a method is invoked. Such advices cannot
@@ -28,6 +28,11 @@ import org.springframework.lang.Nullable;
  * @see AfterReturningAdvice
  * @see ThrowsAdvice
  */
+
+/**
+ * 在 BeforeAdvice 接口的继承体系中，定义了为了增强目标方法设置的前置增强接口
+ * MethodBeforeAdvice ，使用这个增强接口需要实现一个回调函数 before
+  */
 public interface MethodBeforeAdvice extends BeforeAdvice {
 
 	/**

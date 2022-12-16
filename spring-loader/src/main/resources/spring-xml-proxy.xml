@@ -22,7 +22,7 @@
     xmlns:aop="http://www.springframework.org/schema/aop"
     http://www.springframework.org/schema/aop
     https://www.springframework.org/schema/aop/spring-aop.xsd
-    第三部：
+    第三步：
     配置AOP
         1、<aop:point /> 定位切入点(在哪个地方执行)
         -> id 唯一标记
