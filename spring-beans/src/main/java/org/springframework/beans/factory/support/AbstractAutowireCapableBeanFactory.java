@@ -469,6 +469,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         }
 
         try {
+            // 创建 bean
             Object beanInstance = doCreateBean(beanName, mbdToUse, args);
             if (logger.isTraceEnabled()) {
                 logger.trace("Finished creating instance of bean '" + beanName + "'");
@@ -543,6 +544,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         try {
             // 重点方法：设置好 bean 的依赖关系，完成依赖注入
             populateBean(beanName, mbd, instanceWrapper);
+            // 在对 Bean 的生成和合依赖注入完成之后，开始对 Bean 进行初始化，这个初始化过程
             exposedObject = initializeBean(beanName, exposedObject, mbd);
         } catch (Throwable ex) {
             if (ex instanceof BeanCreationException && beanName.equals(((BeanCreationException) ex).getBeanName())) {
@@ -1698,15 +1700,17 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
         Object wrappedBean = bean;
         if (mbd == null || !mbd.isSynthetic()) {
+            // 这里是对后置处理器 BeanPostProcessor 的 postProcessBeforeInitialization 的方法的调用
             wrappedBean = applyBeanPostProcessorsBeforeInitialization(wrappedBean, beanName);
         }
-
+        // 调用 bean 的初始化方法，这个方法是在 BeanDefinition 中通过定义 init-method 属性来定义的
         try {
             invokeInitMethods(beanName, wrappedBean, mbd);
         } catch (Throwable ex) {
             throw new BeanCreationException((mbd != null ? mbd.getResourceDescription() : null), beanName, "Invocation of init method failed", ex);
         }
         if (mbd == null || !mbd.isSynthetic()) {
+
             wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
         }
 
