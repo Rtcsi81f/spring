@@ -129,6 +129,8 @@ public class ProxyFactoryBean extends ProxyCreatorSupport implements FactoryBean
 
     /**
      * If this is a singleton, the cached singleton proxy instance.
+     *
+     * 如果我们目标类是个单例，该单例会被缓存
      */
     @Nullable
     private Object singletonInstance;
@@ -257,8 +259,10 @@ public class ProxyFactoryBean extends ProxyCreatorSupport implements FactoryBean
     @Override
     @Nullable
     public Object getObject() throws BeansException {
+        // 为 Proxy 代理对象配置 Advisor 实在该方法完成的，
         initializeAdvisorChain();
         if (isSingleton()) {
+            // 生成单例的代理对象，这里便是 ProxyFactoryBean 生成 AopProxy 代理对象的调用入口
             return getSingletonInstance();
         } else {
             if (this.targetName == null) {
@@ -439,6 +443,8 @@ public class ProxyFactoryBean extends ProxyCreatorSupport implements FactoryBean
      * are unaffected by such changes.
      */
     private synchronized void initializeAdvisorChain() throws AopConfigException, BeansException {
+        // advisorChainInitialized 标志位纪录 通知器链是否已经初始化，如果已经初始化着直接返回
+        // 这说明初始化的工作应该是发生在第一次通过 ProxyFactoryBean 去获取代理对象的时候
         if (this.advisorChainInitialized) {
             return;
         }
@@ -466,8 +472,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport implements FactoryBean
                         throw new AopConfigException(
                                 "Can only use global advisors or interceptors with a ListableBeanFactory");
                     }
-                    addGlobalAdvisor((ListableBeanFactory) this.beanFactory,
-                            name.substring(0, name.length() - GLOBAL_SUFFIX.length()));
+                    addGlobalAdvisor((ListableBeanFactory) this.beanFactory, name.substring(0, name.length() - GLOBAL_SUFFIX.length()));
                 } else {
                     // If we get here, we need to add a named interceptor.
                     // We must check if it's a singleton or prototype.
@@ -480,6 +485,7 @@ public class ProxyFactoryBean extends ProxyCreatorSupport implements FactoryBean
                         // Avoid unnecessary creation of prototype bean just for advisor chain initialization.
                         advice = new PrototypePlaceholderAdvisor(name);
                     }
+                    // 从以上逻辑来看，advice 也是从IoC 容器中获取的
                     addAdvisorOnChainCreation(advice, name);
                 }
             }
