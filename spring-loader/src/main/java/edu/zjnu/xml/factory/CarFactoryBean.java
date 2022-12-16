@@ -20,7 +20,7 @@ public class CarFactoryBean implements FactoryBean<Car> {
     }
 
     @Override
-    public Car getObject() throws Exception {
+    public Car getObject() {
         Car car = new Car();
         String[] infos = carInfo.split(",");
         car.setBrand(infos[0]);

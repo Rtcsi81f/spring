@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="car" class="edu.zjnu.xml.factory.CarFactoryBean">
+    <bean id="car" class="edu.zjnu.xml.factory.CarFactoryBean" lazy-init="true">
         <property name="carInfo" value="大众SUV,180,180000"/>
     </bean>
 
