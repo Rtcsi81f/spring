@@ -27,6 +27,10 @@ import org.springframework.transaction.TransactionDefinition;
  * @author Juergen Hoeller
  * @since 1.2
  */
+
+/**
+ * 事务的传播行为
+ */
 public enum Propagation {
 
 	/**
