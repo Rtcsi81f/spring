@@ -9,7 +9,7 @@
         where id = #{id};
     </select>
 
-    <select id="getUserVOS" parameterType="java.lang.Long" resultType="edu.zjnu.biz.vo.UserVO">
+    <select id="getUserVOS" parameterType="java.lang.Long" resultType="edu.zjnu.biz.entity.User">
         select t.id, t.name, t.age, b.id as book_id, b.name as book_name
         from user t
         left join book b on t.id = b.user_id

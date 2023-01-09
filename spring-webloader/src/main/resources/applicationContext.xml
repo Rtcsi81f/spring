@@ -15,7 +15,7 @@
 
     <bean id="lsw" name="lsw" class="edu.zjnu.biz.entity.User">
         <property name="age" value="17"/>
-        <property name="name" value="罗思雯"/>
+        <property name="name" value="小杨超爱罗思雯"/>
     </bean>
 
     <!-- 配置整合mybatis过程 -->

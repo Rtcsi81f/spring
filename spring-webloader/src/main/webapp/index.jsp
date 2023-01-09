@@ -21,5 +21,7 @@
        value="jvm 简单测试，配合 jvisualvm 实验">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUserVO'"
        value="关联查询">
+<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/transaction/test'"
+       value="事务：TEST">
 </body>
 </html>
