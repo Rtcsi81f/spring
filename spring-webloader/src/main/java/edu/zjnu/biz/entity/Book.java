@@ -52,6 +52,7 @@ public class Book {
         return "Book{" +
                 "id=" + id +
                 ", userId=" + userId +
+                ", uuid='" + uuid + '\'' +
                 ", name='" + name + '\'' +
                 '}';
     }

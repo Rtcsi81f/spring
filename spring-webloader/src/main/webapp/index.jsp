@@ -13,7 +13,8 @@
 <body>
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/web/loader';"
        value="请求成功页面">
-<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/user/getUserInfoById';"
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/user/getUserInfoById';"
        value="请求用户页面">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/env/toEnv';"
        value="测试Environment实例">
@@ -23,7 +24,11 @@
        value="关联查询">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/transaction/test'"
        value="事务：TEST">
-<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/transaction/insert'"
-       value="插入一批数据">
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/transaction/insert'"
+       value="插入一批user数据">
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/transaction/insertBooks'"
+       value="插入一批book数据">
 </body>
 </html>

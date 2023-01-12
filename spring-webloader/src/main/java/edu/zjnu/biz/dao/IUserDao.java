@@ -32,4 +32,10 @@ public interface IUserDao {
      * @param users
      */
     void insertBatch(@Param("users") List<User> users);
+
+    /**
+     *
+     * @return
+     */
+    List<User> selectAll();
 }

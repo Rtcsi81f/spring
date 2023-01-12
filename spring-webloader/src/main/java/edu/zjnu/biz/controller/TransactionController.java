@@ -44,5 +44,13 @@ public class TransactionController {
         return "result";
     }
 
+    @RequestMapping("/insertBooks")
+    public String insertBooks(Model model) {
+        Map<String, Object> result = new HashMap<>();
+        bookService.insert(result);
+        model.addAttribute("result", result);
+        return "result";
+    }
+
 
 }

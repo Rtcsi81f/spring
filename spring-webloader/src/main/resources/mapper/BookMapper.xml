@@ -3,6 +3,15 @@
 
 <mapper namespace="edu.zjnu.biz.dao.IBookDao">
 
+    <insert id="insertBatch">
+        INSERT INTO book
+        (name, uuid, user_id)
+        VALUES
+        <foreach collection="books" item="book" separator=",">
+            (#{book.name}, #{book.uuid}, #{book.userId})
+        </foreach>
+    </insert>
+
     <select id="getBookById" resultType="edu.zjnu.biz.entity.Book">
         select t.*
         from book t
