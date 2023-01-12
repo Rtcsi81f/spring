@@ -52,4 +52,9 @@ public class UserService implements IUserService {
         result.put("users", users);
     }
 
+    @Override
+    public void updateById(User user) {
+        userDao.updateById(user);
+    }
+
 }

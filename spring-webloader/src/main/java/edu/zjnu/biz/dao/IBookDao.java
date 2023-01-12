@@ -17,4 +17,6 @@ public interface IBookDao {
     Book getBookById(@Param("id") Long id);
 
     void insertBatch(@Param("books") List<Book> splitBooks);
+
+    void updateById(@Param("updateBook") Book updateBook);
 }

@@ -18,4 +18,10 @@ public interface IBookService {
      * @param result
      */
     void insert(Map<String, Object> result);
+
+    /**
+     *
+     * @param updateBook
+     */
+    void updateById(Book updateBook);
 }

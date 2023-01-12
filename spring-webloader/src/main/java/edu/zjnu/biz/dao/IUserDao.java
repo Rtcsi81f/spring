@@ -21,21 +21,23 @@ public interface IUserDao {
     User getUserInfoById(@Param("id") Long id);
 
     /**
-     *
      * @param id
      * @return
      */
     List<User> getUserVOS(@Param("id") Long id);
 
     /**
-     *
      * @param users
      */
     void insertBatch(@Param("users") List<User> users);
 
     /**
-     *
      * @return
      */
     List<User> selectAll();
+
+    /**
+     * @param user
+     */
+    void updateById(@Param("updateUser") User user);
 }

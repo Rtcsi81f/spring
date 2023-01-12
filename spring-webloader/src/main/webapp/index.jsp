@@ -30,5 +30,12 @@
 <input class="button" type="button"
        onclick="window.location.href='${pageContext.request.contextPath}/transaction/insertBooks'"
        value="插入一批book数据">
+<br/><br/>
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/deadLock/transactionOne'"
+       value="死锁演示：事务一">
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/deadLock/transactionTwo'"
+       value="死锁演示：事务二">
 </body>
 </html>

@@ -3,6 +3,22 @@
 
 <mapper namespace="edu.zjnu.biz.dao.IUserDao">
 
+    <update id="updateById" parameterType="edu.zjnu.biz.entity.User">
+        update user
+        <set>
+            <if test="updateUser.name != null">
+                name = #{updateUser.name},
+            </if>
+            <if test="updateUser.age != null">
+                age = #{updateUser.age},
+            </if>
+            <if test="updateUser.uuid != null">
+                uuid = #{updateUser.uuid},
+            </if>
+        </set>
+        where id = #{updateUser.id}
+    </update>
+
     <select id="getUserInfoById" parameterType="java.lang.Long" resultType="edu.zjnu.biz.entity.User">
         select t.id, t.name, t.age, t.uuid
         from user t

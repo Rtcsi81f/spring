@@ -12,6 +12,22 @@
         </foreach>
     </insert>
 
+    <update id="updateById" parameterType="edu.zjnu.biz.entity.Book">
+        update book
+        <set>
+            <if test="updateBook.name != null">
+                name = #{updateBook.name},
+            </if>
+            <if test="updateBook.userId != null">
+                user_id = #{updateBook.userId},
+            </if>
+            <if test="updateBook.uuid != null">
+                uuid = #{updateBook.uuid},
+            </if>
+        </set>
+        where id = #{updateBook.id}
+    </update>
+
     <select id="getBookById" resultType="edu.zjnu.biz.entity.Book">
         select t.*
         from book t

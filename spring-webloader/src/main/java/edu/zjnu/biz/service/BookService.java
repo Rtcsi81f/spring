@@ -57,4 +57,9 @@ public class BookService implements IBookService {
 
         result.put("result", books);
     }
+
+    @Override
+    public void updateById(Book updateBook) {
+        bookDao.updateById(updateBook);
+    }
 }

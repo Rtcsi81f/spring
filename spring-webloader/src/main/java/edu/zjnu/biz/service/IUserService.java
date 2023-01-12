@@ -27,4 +27,10 @@ public interface IUserService {
      * @param result
      */
     void insert(Map<String, Object> result);
+
+    /**
+     *
+     * @param user
+     */
+    void updateById(User user);
 }
