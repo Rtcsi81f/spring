@@ -4,16 +4,24 @@
 <mapper namespace="edu.zjnu.biz.dao.IUserDao">
 
     <select id="getUserInfoById" parameterType="java.lang.Long" resultType="edu.zjnu.biz.entity.User">
-        select t.id, t.name, t.age
+        select t.id, t.name, t.age, t.uuid
         from user t
         where id = #{id};
     </select>
 
     <select id="getUserVOS" parameterType="java.lang.Long" resultType="edu.zjnu.biz.entity.User">
-        select t.id, t.name, t.age, b.id as book_id, b.name as book_name
+        select t.id, t.name, t.uuid, t.age, b.id as book_id, b.name as book_name
         from user t
-        left join book b on t.id = b.user_id
+                 left join book b on t.id = b.user_id
         where t.id = #{id};
     </select>
 
+    <insert id="insertBatch">
+        INSERT INTO user
+        (name, uuid,age)
+        VALUES
+        <foreach collection="users" item="user" separator=",">
+            (#{user.name}, #{user.uuid}, #{user.age})
+        </foreach>
+    </insert>
 </mapper>

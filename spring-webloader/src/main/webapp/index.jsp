@@ -23,5 +23,7 @@
        value="关联查询">
 <input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/transaction/test'"
        value="事务：TEST">
+<input class="button" type="button" onclick="window.location.href='${pageContext.request.contextPath}/transaction/insert'"
+       value="插入一批数据">
 </body>
 </html>

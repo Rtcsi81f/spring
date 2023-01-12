@@ -3,6 +3,7 @@ package edu.zjnu.biz.service;
 import edu.zjnu.biz.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description: IUserService
@@ -12,15 +13,18 @@ import java.util.List;
 public interface IUserService {
 
     /**
-     *
      * @param id
      */
     User getUserInfoById(Long id);
 
     /**
-     *
      * @param id
      * @return
      */
     List<User> getUserVOS(long id);
+
+    /**
+     * @param result
+     */
+    void insert(Map<String, Object> result);
 }

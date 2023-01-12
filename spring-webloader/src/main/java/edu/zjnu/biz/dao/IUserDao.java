@@ -26,4 +26,10 @@ public interface IUserDao {
      * @return
      */
     List<User> getUserVOS(@Param("id") Long id);
+
+    /**
+     *
+     * @param users
+     */
+    void insertBatch(@Param("users") List<User> users);
 }

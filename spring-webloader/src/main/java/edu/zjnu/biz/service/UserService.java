@@ -2,11 +2,15 @@ package edu.zjnu.biz.service;
 
 import edu.zjnu.biz.dao.IUserDao;
 import edu.zjnu.biz.entity.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import edu.zjnu.biz.utils.NameUtil;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.UUID;
 
 /**
  * @description: IUserService
@@ -19,6 +23,7 @@ public class UserService implements IUserService {
     @Resource
     private IUserDao userDao;
 
+
     @Override
     public User getUserInfoById(Long id) {
         return userDao.getUserInfoById(id);
@@ -29,5 +34,22 @@ public class UserService implements IUserService {
         return userDao.getUserVOS(id);
     }
 
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void insert(Map<String, Object> result) {
+
+        List<User> users = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setAge(18);
+            user.setUuid(String.valueOf(UUID.randomUUID()));
+            user.setName(NameUtil.getName());
+            users.add(user);
+        }
+
+        userDao.insertBatch(users);
+
+        result.put("users", users);
+    }
 
 }
