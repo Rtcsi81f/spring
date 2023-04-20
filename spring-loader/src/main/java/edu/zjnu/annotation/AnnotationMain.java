@@ -11,6 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AnnotationMain {
 
     public static void main(String[] args) {
+
         // 创建工厂,加载配置文件
         ApplicationContext ac = new ClassPathXmlApplicationContext("spring-annotation.xml");
 
