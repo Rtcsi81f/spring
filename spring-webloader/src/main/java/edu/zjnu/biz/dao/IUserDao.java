@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @description: IUserDao
@@ -40,4 +41,10 @@ public interface IUserDao {
      * @param user
      */
     void updateById(@Param("updateUser") User user);
+
+    /**
+     * 对比mybtais版本差异
+     * @param param
+     */
+    List<User> compareMybatisVersion(Map<String, Object> param);
 }

@@ -2,6 +2,7 @@ package edu.zjnu.biz.controller;
 
 import edu.zjnu.biz.entity.User;
 import edu.zjnu.biz.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,6 +27,13 @@ public class UserController {
     public String getUser(Model model) {
         User user = userService.getUserInfoById(30L);
         model.addAttribute("user", user);
+        return "user";
+    }
+
+    @RequestMapping("/compareMybatisVersion")
+    public String compareMybatisVersion(Model model) {
+        List<User> users = userService.compareMybatisVersion();
+        model.addAttribute("user", users);
         return "user";
     }
 

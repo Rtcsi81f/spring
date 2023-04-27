@@ -37,5 +37,8 @@
 <input class="button" type="button"
        onclick="window.location.href='${pageContext.request.contextPath}/deadLock/transactionTwo'"
        value="死锁演示：事务二">
+<input class="button" type="button"
+       onclick="window.location.href='${pageContext.request.contextPath}/user/compareMybatisVersion';"
+       value="比较mybatis版本差异">
 </body>
 </html>

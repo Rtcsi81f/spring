@@ -37,6 +37,15 @@
         from user t
     </select>
 
+    <select id="compareMybatisVersion" resultType="edu.zjnu.biz.entity.User">
+        select * from user
+        <where>
+            <if test="_parameter!=null and _parameter!=''">
+                name like concat('%',#{blurName},'%');
+            </if>
+        </where>
+    </select>
+
     <insert id="insertBatch">
         INSERT INTO user
         (name, uuid,age)

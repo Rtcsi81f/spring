@@ -33,4 +33,9 @@ public interface IUserService {
      * @param user
      */
     void updateById(User user);
+
+    /**
+     * 比较版本差异
+     */
+    List<User> compareMybatisVersion();
 }

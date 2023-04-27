@@ -7,10 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * @description: IUserService
@@ -55,6 +52,16 @@ public class UserService implements IUserService {
     @Override
     public void updateById(User user) {
         userDao.updateById(user);
+    }
+
+    /**
+     *
+     */
+    @Override
+    public List<User> compareMybatisVersion() {
+        Map<String,Object> param = new HashMap<>();
+        param.put("blurName","cat");
+        return userDao.compareMybatisVersion(param);
     }
 
 }
