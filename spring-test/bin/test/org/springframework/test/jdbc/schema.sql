@@ -1,0 +1,6 @@
+DROP TABLE man IF EXISTS;
+
+CREATE TABLE man (
+  name VARCHAR(20) NOT NULL,
+  PRIMARY KEY(name)
+);

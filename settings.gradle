@@ -31,11 +31,13 @@ include "spring-websocket"
 include "framework-bom"
 include "integration-tests"
 include "spring-loader"
-include 'spring-webloader'
+include 'spring-ssm-loader'
+include "spring-seesion-loader"
+include "spring-web-loader"
+
 
 rootProject.name = "spring"
 rootProject.children.each { project ->
     project.buildFileName = "${project.name}.gradle"
 }
-
 
