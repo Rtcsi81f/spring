@@ -30,10 +30,15 @@ include "spring-webflux"
 include "spring-websocket"
 include "framework-bom"
 include "integration-tests"
-include "spring-loader"
-include 'spring-ssm-loader'
-include "spring-seesion-loader"
+// Spring 使用案例
+include "spring-samples-loader"
+// 最简单的 Spring MVC 案例
 include "spring-web-loader"
+// 标准的 SSM 工程
+include 'spring-ssm-loader'
+// Spring Session 案例
+include "spring-seesion-loader"
+
 
 
 rootProject.name = "spring"
